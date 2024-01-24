@@ -51,6 +51,14 @@
       textoCopiado.setSelectionRange(0, 99999)
       document.execCommand("copy");
       alert( "O codigo é: " + textoCopiado.value );
+
+      const mensagem = {
+          tipo: "atualizar_dados",
+          dados: { chave: "valor" }
+        };
+
+        // Aqui você deve substituir 'window.parent' pelo objeto que representa a janela pai
+        window.parent.postMessage(mensagem, "*");
     }
   </script>
 
