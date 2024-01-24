@@ -107,8 +107,7 @@ var twebchannel = {
 	// Conecta WebSocket e prepara mensageria global
 	connectWS: function(callback) {
 
-		// var baseUrl = "ws://127.0.0.1:" + this.internalPort,
-		var baseUrl = "ws://45.174.195.28:21468",
+		var baseUrl = "ws://127.0.0.1:" + this.internalPort,
 			socket = new WebSocket(baseUrl);
 
 		socket.onclose = function() { console.error("WebChannel closed"); };
