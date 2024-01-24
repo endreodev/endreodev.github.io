@@ -62,6 +62,18 @@
     }
   </script>
 
+
+  <script>
+    // Enviar uma mensagem para a página pai
+    const mensagem = {
+      tipo: "atualizar_dados",
+      dados: { chave: "valor" }
+    };
+
+    // Aqui você deve substituir 'window.parent' pelo objeto que representa a janela pai
+    window.parent.postMessage(mensagem, "http://localhost:8080");
+  </script>
+
 </body>
 
 </html>
