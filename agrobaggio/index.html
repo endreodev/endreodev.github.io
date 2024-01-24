@@ -9,13 +9,15 @@
 
     <script src="twebchannel.js"></script>
         <script>
-            var niver_item
-
-            window.onload = function() {
+          
+          window.onload = function() {
                 codigo =  document.getElementById('code').value;
 
                 // Fecha conexao entre o AdvPL e o JavaScript via WebSocket
-                twebchannel.connect( () => { console.log('Websocket Connected!'); } );
+                twebchannel.connect( () => { 
+                  alert('Websocket Connected!');
+                  console.log('Websocket Connected!');
+                });
                 twebchannel.advplToJs = function(key, value) {
 
                     // ----------------------------------------------------------
@@ -70,6 +72,7 @@
             // let textoCopiado = document.getElementById("code").value;
             // Retorna informacoes do Form para o AdvPL
             twebchannel.jsToAdvpl("codigo", nome)
+            alert(nome);
         }
       
         var urlAtual = window.location.href;
