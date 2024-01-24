@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt">
 
 <head>
   <meta charset="utf-8">
@@ -59,6 +59,8 @@
 
         // Aqui você deve substituir 'window.parent' pelo objeto que representa a janela pai
         window.parent.postMessage('mensagem', mensagem);
+        alert( "Enviada a Messagem ");
+
     }
   </script>
 
@@ -71,7 +73,8 @@
     };
 
     // Aqui você deve substituir 'window.parent' pelo objeto que representa a janela pai
-    window.parent.postMessage(mensagem, "http://localhost:8080");
+    window.parent.postMessage(mensagem, mensagem);
+    alert("atualizar_dados 2")
   </script>
 
 </body>
