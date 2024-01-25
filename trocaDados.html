@@ -12,32 +12,6 @@
 
   <title>Exemplo Comunicação JavaScript com Advpl</title>
 </head>
-<script>
-
-
-  window.addEventListener("message", function(event) {
-      // const message = event.data.data;
-      // const type = event.data.type;
-
-      // if (type === "advplToJs") {
-      //   adicionarMensagem(message);
-      // }
-      
-      alert("recebeu aqui no html!")
-  });
-
-  function adicionarMensagem(message) {
-
-    const mensagemElemento = document.createElement('p');
-    const mensagemTexto = `Mensagem: ${message}`;
-
-    mensagemElemento.textContent = mensagemTexto;
-    const consoleBox = document.getElementById('consoleBox');
-    consoleBox.appendChild(mensagemElemento);
-    consoleBox.scrollTop = consoleBox.scrollHeight;
-    
-  }
-</script>
 
 <body>
   <style>
@@ -59,10 +33,74 @@
   <input type="text" id="jsonInput" value='{"mensagem": "Olá, mundo!"}' style="width: 300px;">
   <button onclick="enviarMensagem()">Enviar Mensagem</button>
 
-  <div id="consoleBox"></div>
-  <button onclick="postMsgADVPL()">Testando Manual Pintar Mensagem</button>
 
-  
+
+  <div id="consoleBox"></div>
+  <button onclick="recebendoMensagem()">Testando Manual Postar Mensagem</button>
+
+  <script>
+    function enviarMensagem() {
+
+      // Obter o valor do JSON do input
+      const jsonInput = document.getElementById('jsonInput').value;
+
+      //Para identifica as mensagens enviadas para o iFrame 
+      const mensagemParaAdvpl = {
+        type: "jsToAdvpl",
+        data: jsonInput
+      };
+
+      //Envia mensagem para o advpl 
+      window.parent.postMessage(mensagemParaAdvpl, "*");
+
+    }
+
+    function recebendoMensagem() {
+      const mensagemParaJs = {
+        type: "advplToJs",
+        data: "Teste Enviando Para Console Iframe!"
+      };
+      window.parent.postMessage(mensagemParaJs, "*");
+
+    }
+
+  </script>
+
+
+
+
+
+  <script>
+    window.addEventListener("message", function (event) {
+      const message = event.data.data;
+      const type = event.data.type;
+
+      if (type === "advplToJs") {
+        adicionarMensagem(message);
+      }
+
+    });
+
+    function adicionarMensagem(message) {
+      // Criar um elemento de parágrafo para representar a mensagem
+      const mensagemElemento = document.createElement('p');
+      const mensagemTexto = message;
+      mensagemElemento.textContent = mensagemTexto;
+
+      // Obter a caixa do console
+      const consoleBox = document.getElementById('consoleBox');
+      consoleBox.appendChild(mensagemElemento);
+      consoleBox.scrollTop = consoleBox.scrollHeight;
+    }
+
+  </script>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+
 </body>
 
 </html>
