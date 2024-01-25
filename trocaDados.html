@@ -24,27 +24,18 @@
       // }
       
       alert("recebeu aqui no html!")
-
   });
 
   function adicionarMensagem(message) {
-    // Criar um elemento de parágrafo para representar a mensagem
-    const mensagemElemento = document.createElement('p');
 
-    // Gerar uma mensagem aleatória para exibição (substitua isso pelo conteúdo desejado)
+    const mensagemElemento = document.createElement('p');
     const mensagemTexto = `Mensagem: ${message}`;
 
-    // Adicionar o texto da mensagem ao elemento do parágrafo
     mensagemElemento.textContent = mensagemTexto;
-
-    // Obter a caixa do console
     const consoleBox = document.getElementById('consoleBox');
-
-    // Adicionar o elemento de mensagem à caixa do console
     consoleBox.appendChild(mensagemElemento);
-
-    // Rolar automaticamente para a última mensagem adicionada
     consoleBox.scrollTop = consoleBox.scrollHeight;
+    
   }
 </script>
 
@@ -67,44 +58,6 @@
   <!-- Este input simula uma informação no formato json mas pode ser enviado com outros formatos-->
   <input type="text" id="jsonInput" value='{"mensagem": "Olá, mundo!"}' style="width: 300px;">
   <button onclick="enviarMensagem()">Enviar Mensagem</button>
-
-  <script>
-    function enviarMensagem() {
-
-      // Obter o valor do JSON do input
-      const jsonInput = document.getElementById('jsonInput').value;
-
-      //Para identifica as mensagens enviadas para o iFrame 
-      const mensagemParaAdvpl = {
-        type: "jsToAdvpl",
-        data: jsonInput
-      };
-
-      //Envia mensagem para o advpl 
-      window.parent.postMessage(mensagemParaAdvpl, "*");
-
-    }
-
-    function postMsgADVPL(){
-
-      const mensagemParaJs = {
-        type: "advplToJs",
-        data: "Teste Enviando Para Console Iframe!"
-      };
-
-      //Envia mensagem para o advpl 
-      window.parent.postMessage(mensagemParaJs, "*");
-
-    }
-
-  </script>
-
-
-
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
 
   <div id="consoleBox"></div>
   <button onclick="postMsgADVPL()">Testando Manual Pintar Mensagem</button>
