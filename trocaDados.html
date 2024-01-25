@@ -12,6 +12,39 @@
 
   <title>Exemplo Comunicação JavaScript com Advpl</title>
 </head>
+<script>
+
+
+  window.addEventListener("message", function(event) {
+      const message = event.data.data;
+      const type = event.data.type;
+
+      if (type === "advplToJs") {
+        adicionarMensagem(message);
+      }
+
+  });
+
+  function adicionarMensagem(message) {
+    // Criar um elemento de parágrafo para representar a mensagem
+    const mensagemElemento = document.createElement('p');
+
+    // Gerar uma mensagem aleatória para exibição (substitua isso pelo conteúdo desejado)
+    const mensagemTexto = `Mensagem: ${message}`;
+
+    // Adicionar o texto da mensagem ao elemento do parágrafo
+    mensagemElemento.textContent = mensagemTexto;
+
+    // Obter a caixa do console
+    const consoleBox = document.getElementById('consoleBox');
+
+    // Adicionar o elemento de mensagem à caixa do console
+    consoleBox.appendChild(mensagemElemento);
+
+    // Rolar automaticamente para a última mensagem adicionada
+    consoleBox.scrollTop = consoleBox.scrollHeight;
+  }
+</script>
 
 <body>
   <style>
@@ -74,40 +107,7 @@
   <div id="consoleBox"></div>
   <button onclick="postMsgADVPL()">Testando Manual Pintar Mensagem</button>
 
-  <script>
-
-
-    window.addEventListener("message", function(event) {
-        const message = event.data.data;
-        const type = event.data.type;
-
-        if (type === "advplToJs") {
-          adicionarMensagem(message);
-        }
-
-    });
-
-    function adicionarMensagem(message) {
-      // Criar um elemento de parágrafo para representar a mensagem
-      const mensagemElemento = document.createElement('p');
-
-      // Gerar uma mensagem aleatória para exibição (substitua isso pelo conteúdo desejado)
-      const mensagemTexto = `Mensagem: ${message}`;
-
-      // Adicionar o texto da mensagem ao elemento do parágrafo
-      mensagemElemento.textContent = mensagemTexto;
-
-      // Obter a caixa do console
-      const consoleBox = document.getElementById('consoleBox');
-
-      // Adicionar o elemento de mensagem à caixa do console
-      consoleBox.appendChild(mensagemElemento);
-
-      // Rolar automaticamente para a última mensagem adicionada
-      consoleBox.scrollTop = consoleBox.scrollHeight;
-    }
-  </script>
-
+  
 </body>
 
 </html>
