@@ -59,7 +59,7 @@
     crossorigin="anonymous"></script>
 
   <div id="consoleBox"></div>
-  <button onclick="adicionarMensagem()">Adicionar Mensagem</button>
+  <button onclick="postMsgADVPL()">Testando Manual</button>
 
   <script>
 
@@ -73,6 +73,18 @@
         }
 
     });
+
+    function postMsgADVPL(){
+
+      const mensagemParaJs = {
+        type: "advplToJs",
+        data: "Teste Enviando Para Console Iframe!"
+      };
+
+      //Envia mensagem para o advpl 
+      window.parent.postMessage(mensagemParaJs, "*");
+
+    }
 
 
 
