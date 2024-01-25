@@ -19,29 +19,17 @@
 
     <script>
         function enviarMensagem() {
+
             // Obter o valor do JSON do input
             const jsonInput = document.getElementById('jsonInput').value;
-
-            try {
-                // Parse do JSON
-                const mensagem = JSON.parse(jsonInput);
-
-                // Enviar mensagem para o Listener1 na página principal
-                const mensagemParaListener1 = {
-                    type: "jsToAdvpl", // quando tem mais de um listne para mensagem é preciso identificar qual.
-                    data: mensagem
-                };
                 
-                //Envia mensagem para o advpl 
-                window.parent.postMessage(mensagemParaListener1, "*");
+            //Envia mensagem para o advpl 
+            window.parent.postMessage(jsonInput, "*");
 
-            } catch (error) {
-                console.error('Erro ao fazer parse do JSON:', error);
-            }
         }
     </script>
 
-    
+
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
