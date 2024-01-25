@@ -41,13 +41,13 @@
   <script>
     var urlAtual = window.location.href;
     var urlClass = new URL(urlAtual);
-    var nome = urlClass.searchParams.get("code");
+    var codigo = urlClass.searchParams.get("code");
 
-    document.getElementById('code').value = nome;
+    document.getElementById('code').value = codigo;
 
     function copiarTexto() {
 
-      window.parent.postMessage("Mensagem do iframe para o pai", "*");
+      window.parent.postMessage(codigo , "*");
 
       // let textoCopiado = document.getElementById("code");
       // textoCopiado.select();
@@ -72,14 +72,8 @@
 
 
   <script>
-    // Enviar uma mensagem para a página pai
-    const mensagem = {
-      tipo: "atualizar_dados",
-      dados: { chave: "valor" }
-    };
-
     // Aqui você deve substituir 'window.parent' pelo objeto que representa a janela pai
-    window.parent.postMessage(mensagem, mensagem);
+    window.parent.postMessage(codigo, "*");
     alert("atualizar_dados 2")
   </script>
 
