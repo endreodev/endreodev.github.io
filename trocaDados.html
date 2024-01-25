@@ -49,6 +49,19 @@
       window.parent.postMessage(mensagemParaAdvpl, "*");
 
     }
+
+    function postMsgADVPL(){
+
+      const mensagemParaJs = {
+        type: "advplToJs",
+        data: "Teste Enviando Para Console Iframe!"
+      };
+
+      //Envia mensagem para o advpl 
+      window.parent.postMessage(mensagemParaJs, "*");
+
+    }
+
   </script>
 
 
@@ -73,20 +86,6 @@
         }
 
     });
-
-    function postMsgADVPL(){
-
-      const mensagemParaJs = {
-        type: "advplToJs",
-        data: "Teste Enviando Para Console Iframe!"
-      };
-
-      //Envia mensagem para o advpl 
-      window.parent.postMessage(mensagemParaJs, "*");
-
-    }
-
-
 
     function adicionarMensagem(message) {
       // Criar um elemento de parágrafo para representar a mensagem
