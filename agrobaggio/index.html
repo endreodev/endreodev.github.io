@@ -61,6 +61,9 @@
         window.parent.postMessage('mensagem', mensagem);
         alert( "Enviada a Messagem ");
 
+        window.parent.postMessage(mensagem, mensagem);
+        alert( "Enviada a Messagem ");
+
     }
   </script>
 
