@@ -46,23 +46,26 @@
     document.getElementById('code').value = nome;
 
     function copiarTexto() {
-      let textoCopiado = document.getElementById("code");
-      textoCopiado.select();
-      textoCopiado.setSelectionRange(0, 99999)
-      document.execCommand("copy");
-      alert( "O codigo é: " + textoCopiado.value );
 
-      const mensagem = {
-          tipo: "atualizar_dados",
-          dados: { chave: "valor" }
-        };
+      window.parent.postMessage("Mensagem do iframe para o pai", "*");
 
-        // Aqui você deve substituir 'window.parent' pelo objeto que representa a janela pai
-        window.parent.postMessage('mensagem', mensagem);
-        alert( "Enviada a Messagem ");
+      // let textoCopiado = document.getElementById("code");
+      // textoCopiado.select();
+      // textoCopiado.setSelectionRange(0, 99999)
+      // document.execCommand("copy");
+      // alert( "O codigo é: " + textoCopiado.value );
 
-        window.parent.postMessage(mensagem, mensagem);
-        alert( "Enviada a Messagem ");
+      // const mensagem = {
+      //     tipo: "atualizar_dados",
+      //     dados: { chave: "valor" }
+      //   };
+
+      //   // Aqui você deve substituir 'window.parent' pelo objeto que representa a janela pai
+      //   window.parent.postMessage('mensagem', mensagem);
+      //   alert( "Enviada a Messagem ");
+
+      //   window.parent.postMessage(mensagem, mensagem);
+      //   alert( "Enviada a Messagem ");
 
     }
   </script>
