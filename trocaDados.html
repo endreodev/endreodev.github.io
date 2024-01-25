@@ -22,9 +22,14 @@
 
           // Obter o valor do JSON do input
           const jsonInput = document.getElementById('jsonInput').value;
+
+          const mensagemParaAdvpl = {
+              type: "mensagemListener1",
+              data: jsonInput
+          };
                 
           //Envia mensagem para o advpl 
-          window.parent.postMessage(jsonInput, "*");
+          window.parent.postMessage(mensagemParaAdvpl, "*");
 
         }
     </script>
