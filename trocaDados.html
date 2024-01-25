@@ -20,11 +20,11 @@
     <script>
         function enviarMensagem() {
 
-            // Obter o valor do JSON do input
-            const jsonInput = document.getElementById('jsonInput').value;
+          // Obter o valor do JSON do input
+          const jsonInput = document.getElementById('jsonInput').value;
                 
-            //Envia mensagem para o advpl 
-            window.parent.postMessage(jsonInput, "*");
+          //Envia mensagem para o advpl 
+          window.parent.postMessage(jsonInput, "*");
 
         }
     </script>
