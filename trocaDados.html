@@ -36,15 +36,19 @@
   <div id="consoleBox"></div>
 
   <script>
-    window.addEventListener("message", function (event) {
-      if (event.data.type) {
-        const message = event.data.data;
-        const type = event.data.type;
 
-        if (type === "advplToJs") {
-          adicionarMensagem(message);
-        }
-      }
+    window.addEventListener("message", function (event) {
+
+
+      alert("servico interno")
+      // if (event.data.type) {
+      //   const message = event.data.data;
+      //   const type = event.data.type;
+
+      //   if (type === "advplToJs") {
+      //     adicionarMensagem(message);
+      //   }
+      // }
     });
 
     function adicionarMensagem(message) {
