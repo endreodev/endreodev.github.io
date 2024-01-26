@@ -37,10 +37,8 @@
 
   <script>
 
-    window.addEventListener("message", function (event) {
+    // window.addEventListener("message", function (event) {
 
-
-      alert("servico interno");
       // if (event.data.type) {
       //   const message = event.data.data;
       //   const type = event.data.type;
@@ -49,6 +47,17 @@
       //     adicionarMensagem(message);
       //   }
       // }
+    // });
+
+    // Criar evento personalizado
+    const meuEvento = new Event("meuEventoPersonalizado");
+
+    // Disparar evento
+    document.dispatchEvent(meuEvento);
+
+    // Ouvir evento em outro lugar do código
+    document.addEventListener("meuEventoPersonalizado", function (event) {
+        // Faça algo com o evento
     });
 
     function adicionarMensagem(message) {
