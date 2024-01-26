@@ -39,17 +39,32 @@
   <button onclick="recebendoMensagem()">Testando Manual Postar Mensagem</button> -->
 
   <script>
-    
+
+    window.addEventListener("message", function (event) {
+
+      alert("passou no listner iframe")
+      if (event.data.type) {
+        const message = event.data.data;
+        const type = event.data.type;
+
+        if (type === "advplToJs") {
+          // adicionarMensagem(message);
+        }
+      }
+
+    });
+
+
     function enviarMensagem() {
-        // Obter o valor do input
-        const jsonInput = document.getElementById('jsonInput').value;
-        //Para identifica as mensagens enviadas para o iFrame 
-        const mensagemParaAdvpl = {
-          type: "jsToAdvpl",
-          data: jsonInput
-        };
-        //Envia mensagem para o advpl 
-        window.parent.postMessage(mensagemParaAdvpl, "*");
+      // Obter o valor do input
+      const jsonInput = document.getElementById('jsonInput').value;
+      //Para identifica as mensagens enviadas para o iFrame 
+      const mensagemParaAdvpl = {
+        type: "jsToAdvpl",
+        data: jsonInput
+      };
+      //Envia mensagem para o advpl 
+      window.parent.postMessage(mensagemParaAdvpl, "*");
     }
 
     // function recebendoMensagem() {
@@ -71,7 +86,7 @@
     window.addEventListener("message", function (event) {
 
       alert("passou no listner iframe")
-      if(event.data.type){
+      if (event.data.type) {
         const message = event.data.data;
         const type = event.data.type;
 
