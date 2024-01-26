@@ -58,6 +58,9 @@
     // Ouvir evento em outro lugar do código
     document.addEventListener("meuEventoPersonalizado", function (event) {
         // Faça algo com o evento
+        console.log("Evento personalizado recebido: ", event);
+        // const mensagemRecebida = event.detail.minhaMensagem;
+        // console.log("Mensagem recebida: ", mensagemRecebida);
     });
 
     function adicionarMensagem(message) {
