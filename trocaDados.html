@@ -37,31 +37,13 @@
 
   <script>
 
-    // window.addEventListener("message", function (event) {
-
-      // if (event.data.type) {
-      //   const message = event.data.data;
-      //   const type = event.data.type;
-
-      //   if (type === "advplToJs") {
-      //     adicionarMensagem(message);
-      //   }
-      // }
-    // });
-
-    // Criar evento personalizado
-    const meuEvento = new Event("meuEventoPersonalizado");
-
-    // Disparar evento
-    document.dispatchEvent(meuEvento);
-
-    // Ouvir evento em outro lugar do código
-    document.addEventListener("meuEventoPersonalizado", function (event) {
-        // Faça algo com o evento
-        console.log("Evento personalizado recebido: ", event);
-        // const mensagemRecebida = event.detail.minhaMensagem;
-        // console.log("Mensagem recebida: ", mensagemRecebida);
+    //RECEBE MENSAGEM ATRAVES DO IFRAME 
+    window.addEventListener('message', function (event) {
+        // Exiba a mensagem recebida do documento pai
+        console.log('Mensagem recebida do documento pai:', event.data);
+        adicionarMensagem(event.data);
     });
+
 
     function adicionarMensagem(message) {
       // Criar um elemento de parágrafo para representar a mensagem
