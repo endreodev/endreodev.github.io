@@ -40,8 +40,8 @@
     //RECEBE MENSAGEM ATRAVES DO IFRAME 
     window.addEventListener('message', function (event) {
         // Exiba a mensagem recebida do documento pai
-        console.log('Mensagem recebida do documento pai:', event.data);
-        adicionarMensagem(event.data);
+        
+        adicionarMensagem('Mensagem recebida!');
     });
 
 
