@@ -41,17 +41,15 @@
   <script>
     
     function enviarMensagem() {
-
-      // Obter o valor do input
-      const jsonInput = document.getElementById('jsonInput').value;
-      //Para identifica as mensagens enviadas para o iFrame 
-      const mensagemParaAdvpl = {
-        type: "jsToAdvpl",
-        data: jsonInput
-      };
-      //Envia mensagem para o advpl 
-      window.parent.postMessage(mensagemParaAdvpl, "*");
-
+        // Obter o valor do input
+        const jsonInput = document.getElementById('jsonInput').value;
+        //Para identifica as mensagens enviadas para o iFrame 
+        const mensagemParaAdvpl = {
+          type: "jsToAdvpl",
+          data: jsonInput
+        };
+        //Envia mensagem para o advpl 
+        window.parent.postMessage(mensagemParaAdvpl, "*");
     }
 
     // function recebendoMensagem() {
@@ -70,15 +68,19 @@
 
 
   <script>
-    // window.addEventListener("message", function (event) {
-    //   const message = event.data.data;
-    //   const type = event.data.type;
+    window.addEventListener("message", function (event) {
 
-    //   if (type === "advplToJs") {
-    //     adicionarMensagem(message);
-    //   }
+      alert("passou no listner iframe")
+      if(event.data.type){
+        const message = event.data.data;
+        const type = event.data.type;
 
-    // });
+        if (type === "advplToJs") {
+          adicionarMensagem(message);
+        }
+      }
+
+    });
 
     // function adicionarMensagem(message) {
     //   // Criar um elemento de parágrafo para representar a mensagem
