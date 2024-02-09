@@ -12,6 +12,7 @@
 <body id="content">
 
   <script>
+
     document.addEventListener('DOMContentLoaded', function() {
      
       var urlAtual = window.location.href;
@@ -21,19 +22,18 @@
       if (codigo === null || codigo === undefined) {
         alert("Erro na autenticação verifique com suporte!");
       } else {
-        window.parent.postMessage(codigo, "*");
-        alert("Altenticação realizada com sucesso!")
+
+        const mensagemParaAdvpl = {
+          type: "jsToAdvpl",
+          data: codigo
+        };
+        // Envia mensagem para o advpl 
+        window.parent.postMessage(mensagemParaAdvpl, "*");
+        
       }
     
-      const mensagemParaAdvpl = {
-        type: "jsToAdvpl",
-        data: codigo
-      };
-      // Envia mensagem para o advpl 
-      window.parent.postMessage(mensagemParaAdvpl, "*");
-
-      window.parent.postMessage(codigo, "*");
     });
+
   </script>
 
   <main>
