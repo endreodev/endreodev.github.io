@@ -17,6 +17,12 @@
       var urlAtual = window.location.href;
       var urlClass = new URL(urlAtual);
       var codigo = urlClass.searchParams.get("code");
+
+      if (codigo === null || codigo === undefined) {
+        alert("Erro na autenticação verifique com suporte!");
+      } else {
+        alert("Altenticação realizada com sucesso!")
+      }
     
       const mensagemParaAdvpl = {
         type: "jsToAdvpl",
@@ -32,10 +38,10 @@
     <div class="b-example-divider"></div>
 
     <div class="px-4 pt-5 my-5 text-center border-bottom">
-      <h1 class="display-4 fw-bold">Codigo de Ativação</h1>
+      <h1 class="display-4 fw-bold">Ativação de Integração</h1>
       <div class="col-lg-6 mx-auto">
         <p class="lead mb-4">
-          Copie o codigo e siga para o proximo passo para finalizar a autenticação
+          Finalizar a autenticação
         </p>
 
         <!-- <div class="mb-3">
