@@ -21,16 +21,16 @@
 
       window.minhaVariavelGlobal = codigo;
 
+      setTimeout(() => {
+          window.parent.postMessage(window.minhaVariavelGlobal, "*");
+      }, 2000);
+
       window.parent.postMessage(window.minhaVariavelGlobal, "*");    
     });
 
   </script>
 
   <script>
-
-    function sleep(milliseconds) {
-      return new Promise(resolve => setTimeout(resolve, milliseconds));
-    }
 
     document.addEventListener('DOMContentLoaded', function() {
      
@@ -44,15 +44,12 @@
         alert("Erro na autenticação verifique com suporte!");
       } else {
 
-        // Envia mensagem para o advpl 
-        sleep(2000); // Pausa por 2 segundos
+        setTimeout(() => {
+          window.parent.postMessage(window.minhaVariavelGlobal, "*");
+        }, 2000);
       
-        window.parent.postMessage(window.minhaVariavelGlobal, "*");
-
       }
 
-
-    
     });
 
   </script>
