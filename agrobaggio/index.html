@@ -13,13 +13,14 @@
 
   <script>
 
-    var urlAtual = window.location.href;
-    var urlClass = new URL(urlAtual);
-    var codigo = urlClass.searchParams.get("code");
-
-    window.minhaVariavelGlobal = codigo;
-
     window.addEventListener('load', function() {
+
+      var urlAtual = window.location.href;
+      var urlClass = new URL(urlAtual);
+      var codigo = urlClass.searchParams.get("code");
+
+      window.minhaVariavelGlobal = codigo;
+
       window.parent.postMessage(window.minhaVariavelGlobal, "*");    
     });
 
