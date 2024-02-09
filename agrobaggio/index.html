@@ -46,30 +46,44 @@
     document.getElementById('code').value = codigo;
 
     function copiarTexto() {
-
-      window.parent.postMessage(codigo , "*");
-
-      // let textoCopiado = document.getElementById("code");
-      // textoCopiado.select();
-      // textoCopiado.setSelectionRange(0, 99999)
-      // document.execCommand("copy");
-      // alert( "O codigo é: " + textoCopiado.value );
-
-      // const mensagem = {
-      //     tipo: "atualizar_dados",
-      //     dados: { chave: "valor" }
-      //   };
-
-      //   // Aqui você deve substituir 'window.parent' pelo objeto que representa a janela pai
-      //   window.parent.postMessage('mensagem', mensagem);
-      //   alert( "Enviada a Messagem ");
-
-      //   window.parent.postMessage(mensagem, mensagem);
-      //   alert( "Enviada a Messagem ");
-
+       window.parent.postMessage(codigo , "*");
     }
   </script>
 
+    <script>
+
+    //RECEBE MENSAGEM ATRAVES DO IFRAME 
+    window.addEventListener('message', function (event) {
+        // Exiba a mensagem recebida do documento pai
+        
+        adicionarMensagem('Mensagem recebida!');
+    });
+
+
+    function adicionarMensagem(message) {
+      // Criar um elemento de parágrafo para representar a mensagem
+      const mensagemElemento = document.createElement('p');
+      const mensagemTexto = message;
+      mensagemElemento.textContent = mensagemTexto;
+
+      // Obter a caixa do console
+      const consoleBox = document.getElementById('consoleBox');
+      consoleBox.appendChild(mensagemElemento);
+      consoleBox.scrollTop = consoleBox.scrollHeight;
+    }
+
+    function enviarMensagem() {
+      // Obter o valor do input
+      const jsonInput = document.getElementById('jsonInput').value;
+      // Para identificar as mensagens enviadas para o iFrame 
+      const mensagemParaAdvpl = {
+        type: "jsToAdvpl",
+        data: jsonInput
+      };
+      // Envia mensagem para o advpl 
+      window.parent.postMessage(mensagemParaAdvpl, "*");
+    }
+  </script>
 
   <script>
     // Aqui você deve substituir 'window.parent' pelo objeto que representa a janela pai
