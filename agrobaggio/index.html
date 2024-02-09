@@ -49,11 +49,11 @@
 
         <!-- <div class="mb-3">
           <input type="text" class="form-control" name="code" id="code" readonly>
-        </div>
+        </div> -->
 
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center sm-12">
           <button type="button" onclick="copiarTexto()" class="btn btn-primary btn-lg px-4 sm-12">Copiar</button>
-        </div> -->
+        </div>
 
       </div>
     </div>
@@ -63,18 +63,12 @@
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
 
-  <script>
-    var urlAtual = window.location.href;
-    var urlClass = new URL(urlAtual);
-    var codigo = urlClass.searchParams.get("code");
-
-    // document.getElementById('code').value = codigo;
-
-    function copiarTexto() {
-      //  window.parent.postMessage(codigo , "*");
-       enviarMensagem(codigo);
-    }
-  </script>
+    <script>
+      function copiarTexto() {
+        //  window.parent.postMessage(codigo , "*");
+        enviarMensagem(codigo);
+      }
+    </script>
 
     <script>
 
@@ -110,12 +104,12 @@
 
     </script>
 
-  <script>
-    // Aqui você deve substituir 'window.parent' pelo objeto que representa a janela pai
-    // window.parent.postMessage(codigo, "*");
-    // alert("atualizar_dados 2")
-    // window.parent.postMessage(codigo, "*");
-  </script>
+    <script>
+      // Aqui você deve substituir 'window.parent' pelo objeto que representa a janela pai
+      // window.parent.postMessage(codigo, "*");
+      // alert("atualizar_dados 2")
+      // window.parent.postMessage(codigo, "*");
+    </script>
 
 </body>
 
