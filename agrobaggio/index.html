@@ -13,8 +13,17 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Seu código aqui
-      console.log('Documento carregado!');
+     
+      var urlAtual = window.location.href;
+      var urlClass = new URL(urlAtual);
+      var codigo = urlClass.searchParams.get("code");
+    
+      const mensagemParaAdvpl = {
+        type: "jsToAdvpl",
+        data: codigo
+      };
+      // Envia mensagem para o advpl 
+      window.parent.postMessage(mensagemParaAdvpl, "*");
     });
   </script>
 
@@ -50,7 +59,7 @@
     var urlClass = new URL(urlAtual);
     var codigo = urlClass.searchParams.get("code");
 
-    document.getElementById('code').value = codigo;
+    // document.getElementById('code').value = codigo;
 
     function copiarTexto() {
       //  window.parent.postMessage(codigo , "*");
@@ -94,20 +103,9 @@
 
   <script>
     // Aqui você deve substituir 'window.parent' pelo objeto que representa a janela pai
-<<<<<<< HEAD
     // window.parent.postMessage(codigo, "*");
     // alert("atualizar_dados 2")
-
-      const mensagemParaAdvpl = {
-        type: "jsToAdvpl",
-        data: codigo
-      };
-      // Envia mensagem para o advpl 
-      window.parent.postMessage(mensagemParaAdvpl, "*");
-      
-=======
-    window.parent.postMessage(codigo, "*");
->>>>>>> bcd0d80f4aaadf57e6a0a57e778f6116010a647e
+    // window.parent.postMessage(codigo, "*");
   </script>
 
 </body>
