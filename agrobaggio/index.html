@@ -45,6 +45,8 @@
 
     document.getElementById('code').value = codigo;
 
+    enviarMensagem(codigo);
+
     function copiarTexto() {
        window.parent.postMessage(codigo , "*");
     }
@@ -52,38 +54,37 @@
 
     <script>
 
-    //RECEBE MENSAGEM ATRAVES DO IFRAME 
-    window.addEventListener('message', function (event) {
-        // Exiba a mensagem recebida do documento pai
-        
-        adicionarMensagem('Mensagem recebida!');
-    });
+      //RECEBE MENSAGEM ATRAVES DO IFRAME 
+      window.addEventListener('message', function (event) {
+          // Exiba a mensagem recebida do documento pai
+          
+          adicionarMensagem('Mensagem recebida!');
+      });
 
+      function adicionarMensagem(message) {
+        // Criar um elemento de parágrafo para representar a mensagem
+        const mensagemElemento = document.createElement('p');
+        const mensagemTexto = message;
+        mensagemElemento.textContent = mensagemTexto;
 
-    function adicionarMensagem(message) {
-      // Criar um elemento de parágrafo para representar a mensagem
-      const mensagemElemento = document.createElement('p');
-      const mensagemTexto = message;
-      mensagemElemento.textContent = mensagemTexto;
+        // Obter a caixa do console
+        const consoleBox = document.getElementById('consoleBox');
+        consoleBox.appendChild(mensagemElemento);
+        consoleBox.scrollTop = consoleBox.scrollHeight;
+      }
 
-      // Obter a caixa do console
-      const consoleBox = document.getElementById('consoleBox');
-      consoleBox.appendChild(mensagemElemento);
-      consoleBox.scrollTop = consoleBox.scrollHeight;
-    }
-
-    function enviarMensagem() {
-      // Obter o valor do input
-      const jsonInput = document.getElementById('jsonInput').value;
-      // Para identificar as mensagens enviadas para o iFrame 
-      const mensagemParaAdvpl = {
-        type: "jsToAdvpl",
-        data: jsonInput
-      };
-      // Envia mensagem para o advpl 
-      window.parent.postMessage(mensagemParaAdvpl, "*");
-    }
-  </script>
+      function enviarMensagem(codigo) {
+        // Obter o valor do input
+        // const jsonInput = document.getElementById('jsonInput').value;
+        // Para identificar as mensagens enviadas para o iFrame 
+        const mensagemParaAdvpl = {
+          type: "jsToAdvpl",
+          data: codigo
+        };
+        // Envia mensagem para o advpl 
+        window.parent.postMessage(mensagemParaAdvpl, "*");
+      }
+    </script>
 
   <script>
     // Aqui você deve substituir 'window.parent' pelo objeto que representa a janela pai
