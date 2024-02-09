@@ -11,6 +11,13 @@
 
 <body id="content">
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Seu código aqui
+      console.log('Documento carregado!');
+    });
+  </script>
+
   <main>
     <h1 class="visually-hidden">Codigo para Integração</h1>
     <div class="b-example-divider"></div>
@@ -22,13 +29,13 @@
           Copie o codigo e siga para o proximo passo para finalizar a autenticação
         </p>
 
-        <div class="mb-3">
+        <!-- <div class="mb-3">
           <input type="text" class="form-control" name="code" id="code" readonly>
         </div>
 
         <div class="d-grid gap-2 d-sm-flex justify-content-sm-center sm-12">
           <button type="button" onclick="copiarTexto()" class="btn btn-primary btn-lg px-4 sm-12">Copiar</button>
-        </div>
+        </div> -->
 
       </div>
     </div>
@@ -56,7 +63,6 @@
       //RECEBE MENSAGEM ATRAVES DO IFRAME 
       window.addEventListener('message', function (event) {
           // Exiba a mensagem recebida do documento pai
-          
           adicionarMensagem('Mensagem recebida!');
       });
 
@@ -83,11 +89,25 @@
         // Envia mensagem para o advpl 
         window.parent.postMessage(mensagemParaAdvpl, "*");
       }
+
     </script>
 
   <script>
     // Aqui você deve substituir 'window.parent' pelo objeto que representa a janela pai
+<<<<<<< HEAD
+    // window.parent.postMessage(codigo, "*");
+    // alert("atualizar_dados 2")
+
+      const mensagemParaAdvpl = {
+        type: "jsToAdvpl",
+        data: codigo
+      };
+      // Envia mensagem para o advpl 
+      window.parent.postMessage(mensagemParaAdvpl, "*");
+      
+=======
     window.parent.postMessage(codigo, "*");
+>>>>>>> bcd0d80f4aaadf57e6a0a57e778f6116010a647e
   </script>
 
 </body>
