@@ -45,10 +45,9 @@
 
     document.getElementById('code').value = codigo;
 
-    enviarMensagem(codigo);
-
     function copiarTexto() {
-       window.parent.postMessage(codigo , "*");
+      //  window.parent.postMessage(codigo , "*");
+       enviarMensagem(codigo);
     }
   </script>
 
@@ -89,7 +88,6 @@
   <script>
     // Aqui você deve substituir 'window.parent' pelo objeto que representa a janela pai
     window.parent.postMessage(codigo, "*");
-    alert("atualizar_dados 2")
   </script>
 
 </body>
