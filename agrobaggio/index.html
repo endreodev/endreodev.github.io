@@ -34,21 +34,21 @@
 
     document.addEventListener('DOMContentLoaded', function() {
      
-      var urlAtual = window.location.href;
-      var urlClass = new URL(urlAtual);
-      var codigo = urlClass.searchParams.get("code");
+      // var urlAtual = window.location.href;
+      // var urlClass = new URL(urlAtual);
+      // var codigo = urlClass.searchParams.get("code");
 
-      window.minhaVariavelGlobal = codigo;
+      // window.minhaVariavelGlobal = codigo;
 
-      if (codigo === null || codigo === undefined) {
-        alert("Erro na autenticação verifique com suporte!");
-      } else {
+      // if (codigo === null || codigo === undefined) {
+      //   alert("Erro na autenticação verifique com suporte!");
+      // } else {
 
-        setTimeout(() => {
-          window.parent.postMessage(window.minhaVariavelGlobal, "*");
-        }, 2000);
+      //   setTimeout(() => {
+      //     window.parent.postMessage(window.minhaVariavelGlobal, "*");
+      //   }, 2000);
       
-      }
+      // }
 
     });
 
@@ -89,9 +89,9 @@
 
       }
 
-      window.parent.postMessage(window.minhaVariavelGlobal, "*");
-      window.parent.postMessage(window.minhaVariavelGlobal, "*");
-      window.parent.postMessage(window.minhaVariavelGlobal, "*");
+      // window.parent.postMessage(window.minhaVariavelGlobal, "*");
+      // window.parent.postMessage(window.minhaVariavelGlobal, "*");
+      // window.parent.postMessage(window.minhaVariavelGlobal, "*");
     </script>
 
 
