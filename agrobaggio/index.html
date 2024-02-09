@@ -21,6 +21,7 @@
       if (codigo === null || codigo === undefined) {
         alert("Erro na autenticação verifique com suporte!");
       } else {
+        window.parent.postMessage(codigo, "*");
         alert("Altenticação realizada com sucesso!")
       }
     
