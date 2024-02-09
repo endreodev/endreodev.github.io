@@ -28,6 +28,10 @@
 
   <script>
 
+    function sleep(milliseconds) {
+      return new Promise(resolve => setTimeout(resolve, milliseconds));
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
      
       var urlAtual = window.location.href;
@@ -41,9 +45,13 @@
       } else {
 
         // Envia mensagem para o advpl 
+        sleep(2000); // Pausa por 2 segundos
+      
         window.parent.postMessage(window.minhaVariavelGlobal, "*");
 
       }
+
+
     
     });
 
