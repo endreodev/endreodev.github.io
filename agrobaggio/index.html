@@ -65,8 +65,16 @@
 
     <script>
       function copiarTexto() {
-        window.parent.postMessage(codigo , "*");
-        // enviarMensagem(codigo);
+
+        const mensagemParaAdvpl = {
+          type: "jsToAdvpl",
+          data: "1020310551516516516516"
+        };
+
+
+        // Envia mensagem para o advpl 
+        window.parent.postMessage(mensagemParaAdvpl, "*");
+        
       }
     </script>
 
@@ -79,15 +87,6 @@
       });
 
       function adicionarMensagem(message) {
-        // Criar um elemento de parágrafo para representar a mensagem
-        // const mensagemElemento = document.createElement('p');
-        // const mensagemTexto = message;
-        // mensagemElemento.textContent = mensagemTexto;
-
-        // // Obter a caixa do console
-        // const consoleBox = document.getElementById('consoleBox');
-        // consoleBox.appendChild(mensagemElemento);
-        // consoleBox.scrollTop = consoleBox.scrollHeight;
       }
 
       function enviarMensagem(codigo) {
