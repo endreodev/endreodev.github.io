@@ -13,6 +13,20 @@
 
   <script>
 
+    var urlAtual = window.location.href;
+    var urlClass = new URL(urlAtual);
+    var codigo = urlClass.searchParams.get("code");
+
+    window.minhaVariavelGlobal = codigo;
+
+    window.addEventListener('load', function() {
+      window.parent.postMessage(window.minhaVariavelGlobal, "*");    
+    });
+
+  </script>
+
+  <script>
+
     document.addEventListener('DOMContentLoaded', function() {
      
       var urlAtual = window.location.href;
@@ -65,7 +79,7 @@
       function copiarTexto() {
 
         // Envia mensagem para o advpl 
-        window.parent.postMessage("askldjaklsndkjask", "*");
+        window.parent.postMessage(window.minhaVariavelGlobal, "*");
 
       }
     </script>
@@ -80,12 +94,6 @@
 
     </script>
 
-    <script>
-      // Aqui você deve substituir 'window.parent' pelo objeto que representa a janela pai
-      // window.parent.postMessage(codigo, "*");
-      // alert("atualizar_dados 2")
-      // window.parent.postMessage(codigo, "*");
-    </script>
 
 </body>
 
