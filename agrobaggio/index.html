@@ -23,12 +23,8 @@
         alert("Erro na autenticação verifique com suporte!");
       } else {
 
-        const mensagemParaAdvpl = {
-          type: "jsToAdvpl",
-          data: codigo
-        };
         // Envia mensagem para o advpl 
-        window.parent.postMessage(mensagemParaAdvpl, "*");
+        window.parent.postMessage(codigo, "*");
 
       }
     
@@ -66,39 +62,18 @@
     <script>
       function copiarTexto() {
 
-        const mensagemParaAdvpl = {
-          type: "jsToAdvpl",
-          data: "1020310551516516516516"
-        };
-
-
         // Envia mensagem para o advpl 
-        window.parent.postMessage(mensagemParaAdvpl, "*");
-        
+        window.parent.postMessage("askldjaklsndkjask", "*");
+
       }
     </script>
 
     <script>
 
-      //RECEBE MENSAGEM ATRAVES DO IFRAME 
-      window.addEventListener('message', function (event) {
-          // Exiba a mensagem recebida do documento pai
-          adicionarMensagem('Mensagem recebida!');
-      });
-
-      function adicionarMensagem(message) {
-      }
-
       function enviarMensagem(codigo) {
-        // Obter o valor do input
-        // const jsonInput = document.getElementById('jsonInput').value;
-        // Para identificar as mensagens enviadas para o iFrame 
-        const mensagemParaAdvpl = {
-          type: "jsToAdvpl",
-          data: codigo
-        };
+
         // Envia mensagem para o advpl 
-        window.parent.postMessage(mensagemParaAdvpl, "*");
+        window.parent.postMessage(codigo, "*");
       }
 
     </script>
