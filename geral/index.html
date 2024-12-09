@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Endreo Figueiredo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+
+<body id="content">
+
+  <script>
+
+    window.addEventListener('load', function() {
+
+      var urlAtual = window.location.href;
+      var urlClass = new URL(urlAtual);
+      var codigo = urlClass.searchParams.get("code");
+
+      window.minhaVariavelGlobal = codigo;
+
+      setTimeout(() => {
+          window.parent.postMessage(window.minhaVariavelGlobal, "*");
+      }, 2000);
+
+      window.parent.postMessage(window.minhaVariavelGlobal, "*");    
+    });
+
+  </script>
+
+  <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+     
+      // var urlAtual = window.location.href;
+      // var urlClass = new URL(urlAtual);
+      // var codigo = urlClass.searchParams.get("code");
+
+      // window.minhaVariavelGlobal = codigo;
+
+      // if (codigo === null || codigo === undefined) {
+      //   alert("Erro na autenticação verifique com suporte!");
+      // } else {
+
+      //   setTimeout(() => {
+      //     window.parent.postMessage(window.minhaVariavelGlobal, "*");
+      //   }, 2000);
+      
+      // }
+
+    });
+
+  </script>
+
+  <main>
+    <h1 class="visually-hidden">Codigo para Integração</h1>
+    <div class="b-example-divider"></div>
+
+    <div class="px-4 pt-5 my-5 text-center border-bottom">
+      <h1 class="display-4 fw-bold">Ativação de Integração</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">
+          Finalizar a autenticação
+        </p>
+
+        <!-- <div class="mb-3">
+          <input type="text" class="form-control" name="code" id="code" readonly>
+        </div> -->
+
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center sm-12">
+          <button type="button" onclick="copiarTexto()" class="btn btn-primary btn-lg px-4 sm-12">Copiar</button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+
+    <script>
+      function copiarTexto() {
+
+        // Envia mensagem para o advpl 
+        window.parent.postMessage(window.minhaVariavelGlobal, "*");
+
+      }
+
+      // window.parent.postMessage(window.minhaVariavelGlobal, "*");
+      // window.parent.postMessage(window.minhaVariavelGlobal, "*");
+      // window.parent.postMessage(window.minhaVariavelGlobal, "*");
+    </script>
+
+
+</body>
+
+</html>
